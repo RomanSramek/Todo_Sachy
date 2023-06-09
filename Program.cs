@@ -44,7 +44,7 @@ app.MapGet("/Bp1", () =>
 app.MapGet("/Bp1/{zmenaBp1}", (string zmenaBp1) =>
 {
     PùvodníPozice = Bp1;
-
+    // kontrola zda se zadané soøadnice opravdu nachází na šachovnici
     if (zmenaBp1.Length == 2 && zmenaBp1[0] >= 'A' && zmenaBp1[0] <= 'H' && zmenaBp1[1] >= '1' && zmenaBp1[1] <= '8')
     {
         Bp1 = zmenaBp1;
