@@ -2,7 +2,6 @@
 
 public class Tah : IPohyb
 {
-    public BarvaFigury Barva { get; private set; }
     public DruhPohybu Druh => DruhPohybu.Tah;
 
     public Figura Figura { get; private set; }

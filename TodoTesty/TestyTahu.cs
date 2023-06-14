@@ -13,24 +13,16 @@ public class TestyTahu
             {
                 yield return new object[] 
                 { 
-                    $"B {Koordinaty.ToString(sloupec)}{Koordinaty.ToString(rada)}",
-                    BarvaFigury.Bila, 
+                    $"{Koordinaty.ToString(sloupec)}{Koordinaty.ToString(rada)}",
                     sloupec, 
                     rada 
-                };
-                yield return new object[]
-                {
-                    $"C {Koordinaty.ToString(sloupec)}{Koordinaty.ToString(rada)}",
-                    BarvaFigury.Cerna,
-                    sloupec,
-                    rada
                 };
             }
     }
 
     [Test]
     [TestCaseSource(nameof(DejPohybyPesce))]
-    public void TryParse_PohybBilehoPesce(string text, BarvaFigury barva, Sloupec sloupecDo, Rada radaDo)
+    public void TryParse_PohybPesce(string text, Sloupec sloupecDo, Rada radaDo)
     {
         bool vysledek = Tah.TryParse(text, out Tah tah);
 
@@ -40,7 +32,6 @@ public class TestyTahu
         Assert.IsFalse(tah.Sach);
         Assert.IsFalse(tah.Brani);
 
-        Assert.That(tah.Barva, Is.EqualTo(barva));
         Assert.That(tah.Do.Sloupec, Is.EqualTo(sloupecDo));
         Assert.That(tah.Do.Rada, Is.EqualTo(radaDo));
     }
