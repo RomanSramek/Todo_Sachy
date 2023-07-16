@@ -1,12 +1,31 @@
-﻿namespace Todo;
+﻿using System.Collections.Specialized;
+
+namespace Todo;
 
 public class Rosada : IPohyb
 {
-    public BarvaFigury Barva { get; private set; }
     public DruhPohybu Druh { get; private set; }
 
-    public static bool TryParse(string input, Rosada rosada)
+    public static bool TryParse(string input, out Rosada? rosada)
     {
-        throw new NotImplementedException();
+        if (input == "0-0")
+        {
+            rosada = new Rosada()
+            {
+                Druh = DruhPohybu.MalaRosada
+            };
+            return true;
+        }
+        if (input == "0-0-0")
+        {
+            rosada = new Rosada()
+            {
+                Druh = DruhPohybu.VelkaRosada
+            };
+            return true;
+        }
+        rosada = null;
+        return false;
+        
     }
 }
